@@ -1,0 +1,37 @@
+-- Data associated with a class called attribute of the class
+-- Functions associated with a class called methods of that class
+-- Instance variables holds informations unique to their instance.
+-- When we create a method inside a class they receives an instance as an argument bydefault. This instance called self.
+We can call it anything actually but better to stick with convention 'self'
+-- emp = Employee()
+   emp.fullname() == Employee.fullname(self)
+   The only thing is while calling using classname we have to pass the self as class does not know to which instance this method belongs
+-- Class variables are shared among all the instances of class unlike instance variable which is unique to one instance
+-- Class variables can be accessed either by the classname or by an instance of the class.
+Ex. percent_increase = 1.14
+    Employee.percent_increase == self.percent_increase
+-- class method: Any method an be converted to class method by using the decorator @classmethod
+-- class method can be access via both classname and instancename but people usually avoid using instance name as it does not make any sense
+-- Both class variable & class methods can be accessed using instance name but the diference is incase of classvariable whatever value you set 
+using instancename, the value will refelct to that instance only but in case of classmetod irresoective how you call it , it will affect entire class.
+--Static metods are regular functions we just need them in a class because they have some logical conenction to our objecting.
+Static methods does not pass any default instance or class while intiating.Just regular functions.
+-- One important thing is people often tend to use classmethod or instance method to do certain operations but if you access that these operation 
+can be done without using "self" or "cls" then its a candidate for "staticmethod".
+-- In heritance, changing the parameters in subclass(childclass) does not affect the same parameters in parent class.
+-- isinstance() --> Tell if an object is instance of a class 
+Ex:- isinstance(mgr, Manager) = True
+     isinstance(mgr, Employee) = True
+     isinstance(dev, mgr) = False
+
+-- issubclass() ==> Tells if a class is subclass or child class.
+Ex:- issubclass(Manager, Employee) = True 
+     issubclass(Developer, Employee) = True 
+     issubclass(Manager, Developer) = False
+
+--Magic methods are mostly used for operatot overloading. There are many but mostly we use __repr__() & __str__()
+--If we declare both then __str__() take precendence. It is mostly for messaging end users.
+--__repr__() mostly used for Developer to debug the issue
+-- Special methods: https://docs.python.org/3/reference/datamodel.html#special-method-names
+
+-- Property decorator allow a method to be accessed as an attribute.
